@@ -8,7 +8,10 @@ defmodule Cards do
   Creates the deck
   """
   def create_deck do
-    ["Ace", "King", "Queen", "Jack"]
+    values = ["Ace", "King", "Queen", "Jack", "Ten", "Nine", "Eight", "Seven", "Six", "Five", "Four", "Three", "Two"]
+    suits = ["Hearts", "Diamonds", "Clubs", "Spades"]
+
+    for suit <- suits, value <- values, do: "#{value} of #{suit}"
   end
 
   @doc """
