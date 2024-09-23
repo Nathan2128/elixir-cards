@@ -8,15 +8,20 @@ defmodule Cards do
   Creates the deck
   """
   def create_deck do
-    ["Ace", "King", "Queen","Jack"]
+    ["Ace", "King", "Queen", "Jack"]
   end
 
   @doc """
   Shuffles the deck
-  Takes an argument of a deck(list)
-  Returns shuffled deck(list)
   """
   def shuffle_deck(deck) do
     Enum.shuffle(deck)
+  end
+
+  @doc """
+  Checks if a card is in a deck
+  """
+  def contains?(deck, card) do
+    Enum.member?(deck, card)
   end
 end
