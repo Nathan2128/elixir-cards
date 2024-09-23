@@ -1,7 +1,6 @@
 defmodule Cards do
   @moduledoc """
-  Documentation for `Cards`.
-  Contains functions to create_deck, shuffle_deck, etc.
+  Provides functions to create and handle a deck of cards.
   """
 
   @doc """
@@ -44,7 +43,8 @@ defmodule Cards do
   end
 
   @doc """
-  Deals a hand from the deck
+  Divides a deck into a hand and the remaining deck.
+  The `n` parameter determines the size of the hand.
   """
   def deal(deck, n) do
     Enum.split(deck, n)
@@ -66,5 +66,14 @@ defmodule Cards do
       {:ok, binary} -> :erlang.binary_to_term(binary)
       {:error, _reason} -> "This file does not exist!"
     end
+  end
+
+  @doc """
+  Draw hand for player
+  """
+  def draw_hand(n) do
+    create_deck()
+    |> shuffle_deck()
+    |> deal(n)
   end
 end
